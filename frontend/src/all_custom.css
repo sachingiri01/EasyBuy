@@ -1,0 +1,25 @@
+.custom-blue-bg {
+    background-color: rgb(2, 8, 29);
+  }
+  .custom-border-color{
+     border-color: rgba(5, 21, 12, 0.175);
+  }
+
+.table_css th{
+   @apply border
+  
+    p-2
+   hover:bg-gray-600
+ 
+}
+.table_css td {
+   @apply
+   border
+   border-spacing-4
+   p-2
+   hover:bg-gray-600
+}
+
+.table_css {
+   border-spacing: 4px; /* Adjust the spacing as needed */
+ }

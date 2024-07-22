@@ -1,0 +1,58 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+
+# Dependency directories
+jspm_packages/
+
+# Build directories
+dist/
+build/
+public/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Coverage directory
+coverage/
+
+# Binaries
+*.out
+*.exe
+*.app
+*.apk
+*.dmg
+
+# npm package-lock file
+package-lock.json
+yarn.lock
+
+# Next.js build output
+.next/
+
+# Tailwind CSS build output
+.tailwind/
+
+# Prisma files
+.prisma/
+
+# TypeScript files
+*.tsbuildinfo
+src/cloud.js

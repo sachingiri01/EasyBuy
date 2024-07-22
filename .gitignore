@@ -1,0 +1,9 @@
+# Node modules
+frontend/node_modules/
+backend/node_modules/
+frontend/src/cloud.js
+# Log files
+*.log
+
+# Environment files
+*.env
