@@ -25,6 +25,19 @@ const fetch_api={
       update_user:{
         url:`${backend_domain}/updateuser`,
         method:"post"
+      },
+      uploadproduct:{
+           url:`${backend_domain}/uploadproduct`,
+           method:"post"
+      },
+      getproducts:{
+        url:`${backend_domain}/getproducts`,
+        method:"get"
+
+      },
+      updateproduct:{
+        url:`${backend_domain}/update-product`,
+        method:"post"
       }
 }
 export default fetch_api;

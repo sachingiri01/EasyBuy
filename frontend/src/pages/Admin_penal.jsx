@@ -42,10 +42,10 @@ const Admin_penal = () => {
   return (
     <>
     <div className='min-h-screen flex text-white pb-3 p-1'>
-         <div className='w-2/12 min-h-screen text-center  rounded-r-xl shadow-lg hover:shadow-indigo-600  bg-gray-800'>
+         <div className='w-2/12 max-[500px]:hidden min-h-screen text-center  rounded-r-xl shadow-lg hover:shadow-indigo-600  bg-gray-800'>
              <Sidebar/>
          </div>
-         <div className='p-3 w-10/12'>
+         <div className='p-3 w-10/12 max-[500px]:w-full'>
           <Outlet/>
          </div>
     </div>

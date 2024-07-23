@@ -11,7 +11,8 @@ const mongoose =require('mongoose');
     isadmin:{
         type:Boolean,
         default:false
-    }
+    },
+    products:[],
 
 },{timestamps:true})
 const usermodel=mongoose.model('User',userSchema);

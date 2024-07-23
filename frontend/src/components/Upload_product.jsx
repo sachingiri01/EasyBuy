@@ -2,11 +2,15 @@ import React from 'react'
 import cross from "../assets/letter-x.gif"
 import { useState,useEffect } from 'react'
 import logo from "../assets/profile.gif"
+import bin from "../assets/bin.png"
 import upld from "../assets/upload.png"
 import Productimage from './productimage'
 import { productcategory } from '../helper/productcategory'
 import imagetobase64 from "../helper/imagetobase64"
 import uploadimage from '../helper/uploadimage'
+import productimage from './productimage'
+import fetch_api from '../fetch/fetch'
+import { toast } from 'react-toastify'
 const Upload_product = ({onclose}) => {
    const [imagearray, setimagearray] = useState([])
    const [data, setdata] = useState({
@@ -32,10 +36,84 @@ const Upload_product = ({onclose}) => {
             }
            }); 
    }
-   const handle_uplload=()=>{
+   const handle_uplload=async()=>{
+         const respon =await fetch(fetch_api.uploadproduct.url,{
+            method:fetch_api.uploadproduct.method,
+            credentials:"include",
+            headers:{
+               'Content-Type':'application/json',
+             },
+             body:JSON.stringify(data)
+         }) 
+         const resp=await respon.json()
+         if(resp.Success){
+            toast.success(resp.message);
+            onclose();
+         }else{
+            toast.error(resp.message);
+         }
+   }
+   const handle_delete_image=async(index)=>{
+          const curr_url=data.productimage[index]
+         //  await cloudinary.uploader.destroy(curr_url);
+          const new_image=data.productimage.filter((item,ide)=>{
+            return ide!=index
+          })
+          setdata((prevData) => ({
+            ...prevData,
+            productimage: new_image
+          }));
+   }
+   const handle_price=(e)=>{
+      setdata((prev)=>{
+          return {
+            ...prev,
+            price:e.target.value
+          }
+      })
 
    }
-  
+   const handle_sell_price=(e)=>{
+      setdata((prev)=>{
+          return {
+            ...prev,
+            selling:e.target.value
+          }
+      })
+   }
+      const handle_product=(e)=>{
+         setdata((prev)=>{
+             return {
+               ...prev,
+               productname:e.target.value
+             }
+         })
+   }
+   const handle_detail=(e)=>{
+      setdata((prev)=>{
+          return {
+            ...prev,
+            description:e.target.value
+          }
+      })
+}
+const handle_brand=(e)=>{
+   setdata((prev)=>{
+       return {
+         ...prev,
+         brandename:e.target.value
+       }
+   })
+}
+const handle_category=(e)=>{
+   setdata((prev)=>{
+       return {
+         ...prev,
+         category:e.target.value
+       }
+   })
+}
+
 
   return (
     <div className='fixed top-0 backdrop-blur-sm left-0 py-5 right-0 items-center bottom-0 '>
@@ -46,12 +124,14 @@ const Upload_product = ({onclose}) => {
             </div>
             <div className='grid gap-2 '>
                 <label htmlFor="pname" className='text-lg'>Product Name : </label>
-                <input type="text" id='pname' className='w-full text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter product name' />
+                <input required type="text" onChange={handle_product} id='pname' className='w-full text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter product name' />
                 <label htmlFor="bname" className='text-lg'>Brand Name : </label>
-                <input type="text" id='bname' className='w-full text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Brand name' />
+                <input required type="text" onChange={handle_brand} id='bname' className='w-full text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Brand name' />
              
                 <label htmlFor="category" className='text-lg'>Category Name : </label>
-                <select name=""id='category' className='w-full  text-white  border bg-indigo-800' placeholder='Enter Category name' >
+                <select name=""id='category'onChange={handle_category} className='w-full  text-white  border bg-indigo-800' placeholder='Enter Category name' >
+                     
+                     <option value="option">Select Category</option>
                    {
                     productcategory.map((item,index)=>{
                        return <option id={item.id} value={item.value}>{item.label}</option>
@@ -72,12 +152,16 @@ const Upload_product = ({onclose}) => {
                <div className='h-16 flex gap-1 px-1 items-center bg-indigo-800 rounded-lg w-auto'>
                {
                 data?(
-                  data.productimage.map((item)=>{
-                     return  <img src={item} alt="" className='w-14 cursor-pointer h-14 rounded-lg' onClick={()=>{
-                        setshow(true)
-                      
+                  data.productimage.map((item,index)=>{
+                     return <>
+                      <div className='relative'>
+                      <img src={item} alt="" className='w-14 cursor-pointer h-14 rounded-lg' onClick={()=>{
+                        setshow(true)             
                         setimage_view(item)
                      }} />
+                     <img src={bin} className='absolute hover:cursor-pointer hover:invert  top-0 right-0 w-4' onClick={()=>handle_delete_image(index)} alt="" />
+                      </div>
+                     </>
                   })
                 ):(
                   <span>Upload images</span>
@@ -88,13 +172,13 @@ const Upload_product = ({onclose}) => {
 
 
                 <label htmlFor="detail" className='text-lg'>Details : </label>
-                <textarea type="text" id='detail' className='w-full text-white placeholder:text-white border focus:ring-2 text-wrap ring-slate-600 rounded-lg bg-indigo-800' placeholder='Product details ' />
+                <textarea type="text" id='detail' onChange={handle_detail} className='w-full text-white placeholder:text-white border focus:ring-2 text-wrap ring-slate-600 rounded-lg bg-indigo-800' placeholder='Product details ' />
               
                 <div className='flex justify-evenly'>
-                <input type="number" id='price' className=' text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Price' />
+                <input type="number" required onChange={handle_price} id='price'  className=' text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Price' />
               
             
-              <input type="text" id='pname' className=' text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Selling Price' />
+              <input type="number" required onChange={handle_sell_price} id='pseling' className=' text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-indigo-800' placeholder='Enter Selling Price' />
                 </div>
               <div className='flex items-center justify-center'> <button onClick={handle_uplload} className='p-1 w-5/6 my-3 bg-red-600 px-3 text-white rounded-lg hover:cursor-pointer'>  Upload </button></div>
             </div>

@@ -15,14 +15,16 @@ const Header = () => {
   const dispatch=useDispatch();
   const nevigate=useNavigate();
   const handle_logout=async()=>{
-            const data=await fetch(fetch_api.logut.url,{
-              method:fetch_api.logut.method,
+    console.log()
+            const data=await fetch(fetch_api.uploadproduct.url,{
+              method:fetch_api.uploadproduct.method,
               credentials:'include'
             })
             const fetched=await data.json();
             if(fetched.Success){
                  toast.success("Logout Sucessfully...")
                  dispatch(setUser(null))
+                 nevigate('/');
             }else{
               toast.error('User Not found ');
             }

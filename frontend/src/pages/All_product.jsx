@@ -1,11 +1,28 @@
 import React from 'react'
 import Upload_product from '../components/Upload_product'
 import { useState,useEffect,useReducer,useRef } from 'react';
+
+import fetch_api from '../fetch/fetch';
+import Prductcard from "../components/Prductcard"
+
 const All_product = () => {
   const [show, setshow] = useState(false);
+  const [data, setdata] = useState(null)
   const handle_show=()=>{
     setshow(false);
   }
+  const get_data=async()=>{
+    const res=await fetch(fetch_api.getproducts.url,{
+      method:fetch_api.getproducts.method,
+      credentials:"include"
+    })
+    const response=await res.json();
+    if(response.products!=null)  setdata(response.products);
+  }
+  useEffect(() => {
+      get_data();
+  }, [show])
+  
   return (
     <div className='min-h-screen relative  w-full'>
        
@@ -19,36 +36,24 @@ const All_product = () => {
       <p className="text-sm">Showing <span> 10 </span> of 40</p>
     </div>
    
-    <div className='p-2'>
-  
-    <div className='w-3/12 bg-red-500 rounded-lg group block overflow-hidden hover:shadow-purple-400 shadow-md'>
-  
-        
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-            className="w-full object-cover transition rounded-lg duration-500 group-hover:scale-105 "
-          />
+   
+    <div className='relative p-2 grid grid-cols-5 max-[1200px]:grid-cols-4 max-[900px]:grid-cols-3 max-[650px]:grid-cols-2 max-[500px]:grid-cols-1 gap-3 flex-wrap'>
+    {
+     data?(
+      data.map((item)=>{
 
-          <div className="relative text-center text-white bg-slate-600">
-            <h3 className="text-lg group-hover:underline">
-              Basic Tee
-            </h3>
-
-            <p className="text-sm">
-              <span className=""> Regular Price :</span>
-
-              <span className=""> £24.00 GBP </span>
-            </p>
-          </div>
+        return(
+          <Prductcard item={item}/>
+        )
+      })
+     ): <p className='text-white text-center text-2xl'>You havent Uploaded Any Products yet</p>
      
-    </div>
-      
+    }
+
+</div>
 
 
-
-
-    </div>
+    
 
     <div className='absolute bottom-0 w-full items-center'>
     <ol className="mt-8 items-center bottom-0 flex justify-center gap-1 text-xs font-medium">
@@ -110,6 +115,7 @@ const All_product = () => {
         <Upload_product onclose={handle_show}/>
       )
     }
+   
     </div>
   )
 }
