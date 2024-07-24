@@ -38,6 +38,14 @@ const fetch_api={
       updateproduct:{
         url:`${backend_domain}/update-product`,
         method:"post"
+      },
+      getproductbycategory:{
+        url:`${backend_domain}/getproductbycategory`,
+        method:"get"
+      },
+      getallcatproduct:{
+        url:`${backend_domain}/getallcatproduct`,
+        method:"post",
       }
 }
 export default fetch_api;

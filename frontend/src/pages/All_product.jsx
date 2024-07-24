@@ -26,24 +26,24 @@ const All_product = () => {
   return (
     <div className='min-h-screen relative  w-full'>
        
-  <div className=" px-2 ">
+  <div className=" px-2 pr-0">
     <header className='bg-slate-700 flex justify-between p-2 rounded-lg hover:ring-1 shadow-md hover:shadow-indigo-700'>
       <h2 className="text-xl font-bold sm:text-3xl">Product Collection</h2>
        <button className='bg-purple-600 rounded-lg px-2 hover:bg-purple-700' onClick={()=>setshow(true)}>Upload Products</button>
     </header>
 
-    <div className="mt-8">
+    <div className="m-3 ">
       <p className="text-sm">Showing <span> 10 </span> of 40</p>
     </div>
    
    
-    <div className='relative p-2 grid grid-cols-5 max-[1200px]:grid-cols-4 max-[900px]:grid-cols-3 max-[650px]:grid-cols-2 max-[500px]:grid-cols-1 gap-3 flex-wrap'>
+    <div className='relative p-2  h-[calc(100vh-200px)] max-[650px]:justify-center rounded-md overflow-y-scroll flex gap-3 flex-wrap'>
     {
      data?(
       data.map((item)=>{
 
         return(
-          <Prductcard item={item}/>
+          <Prductcard get_data={get_data} item={item}/>
         )
       })
      ): <p className='text-white text-center text-2xl'>You havent Uploaded Any Products yet</p>
@@ -55,7 +55,7 @@ const All_product = () => {
 
     
 
-    <div className='absolute bottom-0 w-full items-center'>
+    <div className='absolute bottom-0  w-full items-center'>
     <ol className="mt-8 items-center bottom-0 flex justify-center gap-1 text-xs font-medium">
       <li>
         <a

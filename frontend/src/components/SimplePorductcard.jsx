@@ -2,24 +2,16 @@ import React from 'react'
 import Editproduct from './Editproduct'
 import edit from "../assets/edit.png"
 import { useState,useEffect } from 'react'
-const Prductcard = ({item,get_data}) => {
-    const [edit_show, setedit_show] = useState(false)
-    const edit_show_set=()=>{
-        setedit_show(false)
-    }
-    useEffect(() => {
-      get_data();
-    }, [edit_show])
-    
+const Simpleproductcard = ({item}) => {
     return (
       
-        <div onClick={()=>setedit_show(true)}  className='  cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
-          {
+        <div   className='  cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
+          {/* {
                edit_show &&(
                 <Editproduct details={item} onClose={()=>setedit_show(false)}/>
                )
           }
-         
+          */}
        <div className='flex overflow-hidden rounded-xl rounded-b-none bg-gray-400 items-center justify-center'>
        <img
           src={item.productimage[0]}
@@ -57,4 +49,4 @@ const Prductcard = ({item,get_data}) => {
       )
 }
 
-export default Prductcard
+export default Simpleproductcard

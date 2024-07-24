@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import Admin_penal from "../pages/Admin_penal";
 import All_user from "../pages/All_user";
 import All_product from "../pages/All_product";
+import CategoryProduct from "../pages/CategoryProduct";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
          {
           path:'sign-up',
           element:<Signup/>
-         },{
+         },
+         {
+           path:'category-product/:category',
+           element:<CategoryProduct/>
+         } ,{
           path:'admin-penal',
           element:<Admin_penal/>,
           children:[

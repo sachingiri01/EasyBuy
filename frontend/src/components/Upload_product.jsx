@@ -155,7 +155,7 @@ const handle_category=(e)=>{
                   data.productimage.map((item,index)=>{
                      return <>
                       <div className='relative'>
-                      <img src={item} alt="" className='w-14 cursor-pointer h-14 rounded-lg' onClick={()=>{
+                      <img src={item} alt="" className='w-14 cursor-pointer bg-gray-500 h-14 rounded-lg' onClick={()=>{
                         setshow(true)             
                         setimage_view(item)
                      }} />

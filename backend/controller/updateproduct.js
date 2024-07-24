@@ -4,10 +4,7 @@ const update_product=(async(req,res)=>{
    try{
     console.log(req.body._id);
     const _id=req.body._id
-    const update_product_detail=await  productmodel.findByIdAndUpdate(_id,  req.body ,
-        { new: true })
-    console.log(update_product_detail);
-    
+    const update_product_detail=await  productmodel.findByIdAndUpdate(_id,  req.body , { new: true })
     res.json({
         message:"Product Updated SuccessFully",
         Success:true,

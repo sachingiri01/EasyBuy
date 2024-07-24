@@ -162,7 +162,7 @@ const handle_close=()=>{
              data.productimage.map((item,index)=>{
                 return <>
                  <div className='relative'>
-                 <img src={item} alt="" className='w-14 cursor-pointer h-14 rounded-lg' onClick={()=>{
+                 <img src={item} alt="" className='w-14 bg-gray-500 cursor-pointer h-14 rounded-lg' onClick={()=>{
                    setshow(true)             
                    setimage_view(item)
                 }} />
@@ -179,7 +179,7 @@ const handle_close=()=>{
 
 
            <label htmlFor="detail" className='text-lg'>Details : </label>
-           <textarea type="text" id='detail' onChange={handle_detail} className='w-full text-white placeholder:text-white border focus:ring-2 text-wrap ring-slate-600 rounded-lg bg-slate-800' placeholder='Product details ' />
+           <textarea type="text" id='detail' onChange={handle_detail} value={data.description} className='w-full text-white placeholder:text-white border focus:ring-2 text-wrap ring-slate-600 rounded-lg bg-slate-800' placeholder='Product details ' />
          
            <div className='flex justify-evenly gap-3'>
            <input type="number"  onChange={handle_price}  value={data.price} id='price'  className=' text-white placeholder:text-white border focus:ring-2 ring-slate-600 rounded-lg bg-slate-800' placeholder='Enter Price' />
