@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect ,useState,useRef } from 'react'
 import fetch_api from '../fetch/fetch'
-import Productcard from "../components/SimplePorductcard"
+import Productcard from "../components/SimpleProductcard"
 const CategoryProduct = () => {
     const [products, setproducts] = useState([])
     const cat=useParams()

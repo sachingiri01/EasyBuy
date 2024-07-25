@@ -8,6 +8,7 @@ import Admin_penal from "../pages/Admin_penal";
 import All_user from "../pages/All_user";
 import All_product from "../pages/All_product";
 import CategoryProduct from "../pages/CategoryProduct";
+import Productdetails from "../pages/Productdetails";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
          {
              path:'forgot-password',
              element:<Forgotpassword/>
+         },{
+            path:"Product-Details/:_id",
+            element:<Productdetails/>
          },
          {
           path:'sign-up',

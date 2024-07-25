@@ -36,7 +36,7 @@ function App() {
     <ToastContainer />
     <div className='custom-blue-bg font-serif w-full'>
     <Header/>
-   <main className=''>
+   <main className=' pt-20'>
    <Outlet/>
    </main>
     <Footer/>

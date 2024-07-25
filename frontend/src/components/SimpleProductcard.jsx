@@ -16,7 +16,7 @@ const Simpleproductcard = ({item}) => {
        <img
           src={item.productimage[0]}
           alt=""
-          className="h-[240px] object-fill group w-full  transition rounded-lg duration-500 group-hover:scale-105 "
+          className="h-[200px] object-fill group w-full  transition rounded-lg duration-500 group-hover:scale-105 "
         />
        </div>
 

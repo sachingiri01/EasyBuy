@@ -4,6 +4,7 @@ import fetch_api from '../fetch/fetch'
 import { useState,useEffect } from 'react'
 import forward from "../assets/fast-forward.png"
 import backward from "../assets/rewind.png"
+import HomeProductcard from "../components/HomeProductcard"
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.webp"
 import img3 from "../assets/img3.jpg"
@@ -14,6 +15,8 @@ import img2_mob from "../assets/img2_mobile.webp"
 import img3_mob from "../assets/img3_mobile.jpg"
 import img4_mob from "../assets/img4_mobile.jpg"
 import img5_mob from "../assets/img5_mobile.png"
+import Verticalproduct from '../components/Verticalproduct'
+import { productcategory } from '../helper/productcategory'
 
 
 import { Link } from 'react-router-dom'
@@ -38,13 +41,17 @@ const Home = () => {
   }
   useEffect(() => {
       fetch_product()
-      const interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % 5);
-      }, 2000);
-      return () => {
-        clearInterval(interval);
-      };
+     
   }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % 5);
+    }, 2000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [])
+  
   const nullarray=new Array(13).fill(null)
   
   return (
@@ -85,6 +92,30 @@ const Home = () => {
             <img src={mob_array[Index]} className='object-fit w-full max-[600px]:h-60 h-72' alt="" />  
       </div>
 
+      <div className='py-3'>
+     
+           
+           {/* {
+            productcategory.map((item)=>{
+           
+            return  <HomeProductcard category={item}  />
+            })
+           } */}
+           <HomeProductcard category={productcategory[0]}  />
+           <HomeProductcard category={productcategory[1]}  />
+           <HomeProductcard category={productcategory[2]}  />
+           <Verticalproduct category={productcategory[3]}  />
+           <HomeProductcard category={productcategory[4]}  />
+           <HomeProductcard category={productcategory[5]}  />
+           <HomeProductcard category={productcategory[11]}  />
+           <Verticalproduct category={productcategory[7]}  />
+           <HomeProductcard category={productcategory[8]}  />
+           <Verticalproduct category={productcategory[9]}  />
+           <HomeProductcard category={productcategory[10]}  />
+           <HomeProductcard category={productcategory[6]}  />
+
+          
+      </div>
 
    </div>
   )

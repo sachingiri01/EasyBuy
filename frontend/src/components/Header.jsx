@@ -38,7 +38,7 @@ const Header = () => {
       nevigate('/login');
  }
   return (
-    <div className='text-white  px-4 h-20 flex justify-between rounded-b-lg border-b-2 items-center bg-gray-800 hover:bg-gray-900'>
+    <div className='text-white fixed w-full z-10  px-4 h-20 flex justify-between rounded-b-lg border-b-2 items-center bg-gray-800 hover:bg-gray-900'>
   
       <div className='w-1/6'>
        <Link to="/">  <img src={logo} className='w-24 hover:cursor-pointer rounded-lg shadow-lg shadow-blue-800/40' alt="" /></Link>

@@ -6,7 +6,9 @@ const getallcatproduct =(async(req,res)=>{
     try{
 
         const cat=req.body.category;
+        
         const product=await productmodel.find({category:cat.category});
+      
         res.json({
             message:"Product Feched Sucessfully",
             Success:true,
