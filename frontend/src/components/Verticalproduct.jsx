@@ -4,9 +4,11 @@ import fetch_api from '../fetch/fetch';
 import { useState,useEffect,useRef } from 'react';
 import fastfowrad from "../assets/next.png"
 import backward from "../assets/back.png"
+import { useNavigate,Link } from 'react-router-dom';
 const Verticalproduct = ({category}) => {
     const [scrool, setscrool] = useState(0);
     const scrollElement = useRef(null)
+    const nevigate=useNavigate();
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true)
     const fetch_products=async(category)=>{
@@ -37,6 +39,10 @@ const Verticalproduct = ({category}) => {
           scrollElement.current.scrollLeft -= 300;
         }
       };
+      const productdetail=(category,_id)=>{
+        console.log(category,index);
+        nevigate(`/Product-details/${category}/${_id}`)
+      }
   return (
    <>
             <div  className='text-white p-4 '>
@@ -67,7 +73,7 @@ const Verticalproduct = ({category}) => {
                     return(
                         <div>
                  
-                <div className='text-white w-60 group  flex-col    gap-1 group hover:scale-105 transition duration-200 hover:cursor-pointer hover:bg-gray-300  bg-white rounded-lg'>
+                <div  onClick={()=> nevigate(`/Product-details/${index.category}/${index._id}`)} className='text-white w-60 group  flex-col    gap-1 group hover:scale-105 transition duration-200 hover:cursor-pointer hover:bg-gray-300  bg-white rounded-lg'>
                  <div className='flex items-center justify-center'>
                  <img src={index.productimage[0]} className='object-scale-down  h-64 rounded-md bg-white' alt="" />
                  </div>

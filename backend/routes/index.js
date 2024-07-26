@@ -11,7 +11,8 @@ const update_user = require('../controller/update_user');
 const getproduct = require('../controller/getproducts');
 const update_product = require('../controller/updateproduct');
 const GetProductByCategory = require('../controller/GetProductByCategory');
-const getallcatproduct=require("../controller/GetAllCatProduct")
+const getallcatproduct=require("../controller/GetAllCatProduct");
+const GetProduct = require('../controller/GetProduct');
 router.post('/signup',signup);
 router.post('/login',login);
 router.get('/userdetail',authenticate,user_detail)
@@ -23,4 +24,5 @@ router.get('/getproducts',authenticate,admin_authenticate,getproduct)
 router.post('/update-product',authenticate,admin_authenticate,update_product)
 router.get('/getproductbycategory',GetProductByCategory)
 router.post('/getallcatproduct',getallcatproduct)
+router.post('/product-detail',GetProduct)
 module.exports=router

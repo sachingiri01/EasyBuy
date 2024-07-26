@@ -29,12 +29,12 @@ const Prductcard = ({item,get_data}) => {
        </div>
 
         <div className="relative   text-center text-white rounded-lg rounded-t-none bg-slate-600">
-          <h3 className="text-lg group-hover:underline">
+          <h3 className="text-lg group-hover:underline line-clamp-1">
           {item.brandename} -{item.productname}
-        
+          </h3>
           <p className='text-ellipsis line-clamp-1'> {item.description}</p>
          
-          </h3>
+          
           <p className="text-sm flex justify-evenly">
             <span className="">Price : ₹{item.price}</span>
 

@@ -50,17 +50,17 @@ const Header = () => {
       </div>
 
       <div className='w-1/6 flex justify-evenly max-[990px]:w-2/6 items-center'>
-      <div className='relative group'>
+      <div className='relative max-[700px]:mr-3 group'>
       {
         user&&(
-          <div className='' onClick={()=>setdisplay(!display)}>
+          <div  onClick={()=>setdisplay(!display)}>
         <img src={user?user.user_profile:login} className='w-10 bg-gray-700 m-2 rounded-md hover:invert cursor-pointer hover:bg-white' alt="" />
        </div>
         )
       }
        {
         display && (
-          <div className='absolute bg-gray-600 p-2 rounded-xl left-[-10px] shadow-lg shadow-indigo-700 '>
+          <div className='absolute bg-gray-600 p-2 rounded-xl left-[-10px]  shadow-lg shadow-indigo-700 '>
           <ul className='border-1 font-serif text-sm text-nowrap space-y-1'>
           <li>
           <Link to={"/admin-penal/all-products"} className='hover:underline hover:bg-gray-500   rounded-lg p-1 cursor-pointer'>
@@ -78,12 +78,12 @@ const Header = () => {
        }
 
       </div>
-       <div className='flex max-[600px]:hidden'>
+       <div className='flex max-[600px]:hidden '>
         <img src={cart} className='w-10  bg-gray-700 m-2 rounded-md hover:invert hover:bg-white' alt="" />
         <a className='absolute text-blue-400 text-lg font-semibold rounded-lg  top-1'><a className='bg-red-900 rounded-lg px-2'>50</a></a>
        </div>
-       <div>
-        <button onClick={user?handle_logout:handle_login} className='bg-gray-500 p-2 px-3 text-xl rounded-lg hover:bg-black hover:text-white'>{user?"Logout":"Login"}</button>
+       <div className=''>
+        <button onClick={user?handle_logout:handle_login} className='bg-gray-500 p-2 max-[700px]:p-1 px-3 text-xl rounded-lg hover:bg-black hover:text-white'>{user?"Logout":"Login"}</button>
        </div>
       </div>
 

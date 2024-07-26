@@ -46,6 +46,10 @@ const fetch_api={
       getallcatproduct:{
         url:`${backend_domain}/getallcatproduct`,
         method:"post",
+      },
+      productdetail:{
+        url:`${backend_domain}/product-detail`,
+        method:"post"
       }
 }
 export default fetch_api;
