@@ -13,9 +13,14 @@ const update_product = require('../controller/updateproduct');
 const GetProductByCategory = require('../controller/GetProductByCategory');
 const getallcatproduct=require("../controller/GetAllCatProduct");
 const GetProduct = require('../controller/GetProduct');
+const AddToCart = require('../controller/Addtocart');
+const getcartproduct = require('../controller/GetCartProducts');
 router.post('/signup',signup);
 router.post('/login',login);
 router.get('/userdetail',authenticate,user_detail)
+router.post('/addtocart',authenticate, AddToCart);
+router.get('/getcartproduct',authenticate,getcartproduct)
+// router.get('/getallcartproduct',authenticate,getallcatproduct)
 router.get('/logout',logout)
 router.get('/alluser',authenticate,admin_authenticate,all_user)
 router.post('/updateuser',authenticate, admin_authenticate,update_user)

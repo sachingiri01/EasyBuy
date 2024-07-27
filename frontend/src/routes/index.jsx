@@ -9,6 +9,7 @@ import All_user from "../pages/All_user";
 import All_product from "../pages/All_product";
 import CategoryProduct from "../pages/CategoryProduct";
 import Productdetails from "../pages/Productdetails";
+import CartProductView from "../pages/CartProductView";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
          {
           path:"login",
           element:<Login/>
+         },
+         {
+          path:"cartproducts",
+          element:<CartProductView/>
          },
          {
              path:'forgot-password',

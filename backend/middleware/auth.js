@@ -1,7 +1,7 @@
 const jwt =require('jsonwebtoken')
-const authenticate=(req,res,next)=>{
+const authenticate=async(req,res,next)=>{
     try{
-        const token=req.cookies.token;
+        const token=await req.cookies.token;
         if(!token){
             return res.status(401).json({message:"user not login",Success:false})
         }

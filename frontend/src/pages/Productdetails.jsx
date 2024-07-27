@@ -69,10 +69,30 @@ const Productdetails = () => {
   const handle_product_click=(_id)=>{
     nevigate(`/${data.category}/${_id}`)
   }
-  setTimeout(() => {
-    // setloading(false);
-  }, 200);
+  const addtocart=async()=>{
+        const productid=data._id;
+        const quantity=1;
+        const res=await fetch(fetch_api.addtocart.url,{
+          method:fetch_api.addtocart.method,
+          headers:{
+            'Content-Type':'application/json',
+          },
+          credentials:"include",
+          body:JSON.stringify({productid:productid,quantity:quantity})
+         })
+        const response=await res.json();
+        if(response.Success){
+          toast.success(response.message);
+        }else{
+          toast.error(response.message);
 
+        }
+    
+  }
+  const removefromcart=()=>{
+    const productid=data._id;
+    
+  }
   return (
     <div className="text-white py-4 mb-4 bg-gray-800 w-full min-h-[80vh] max-[600px]:px-2 px-10">
       { loading ? (
@@ -154,7 +174,7 @@ const Productdetails = () => {
                 <button className="border-red-400 bg-white font-semibold px-2 p-1 rounded-md text-red-500 duration-150 transition-transform hover:scale-105">
                   Buy Now
                 </button>
-                <button className=" bg-red-500 text-white font-semibold px-2 p-1 rounded-md hover:scale-105 duration-150 transition-transform">
+                <button onClick={addtocart} className=" bg-red-500 text-white font-semibold px-2 p-1 rounded-md hover:scale-105 duration-150 transition-transform">
                   Add To Cart
                 </button>
               </div>

@@ -39,6 +39,8 @@ const HomeProductcard = ({category}) => {
           scrollElement.current.scrollLeft -= 300;
         }
       };
+      
+      
   return (
    <>
             <div  className='text-white p-4 '>

@@ -13,7 +13,7 @@ const fetch_api={
         url:`${backend_domain}/userdetail`,
         method:'get'
       },
-      logut:{
+      logout:{
         url:`${backend_domain}/logout`,
         method:'get'
 
@@ -50,6 +50,15 @@ const fetch_api={
       productdetail:{
         url:`${backend_domain}/product-detail`,
         method:"post"
-      }
+      },
+      addtocart:{
+        url:`${backend_domain}/addtocart`,
+        method:"post"
+      },
+      getcartproduct:{
+        url:`${backend_domain}/getcartproduct`,
+        method:"get",
+      },
+     
 }
 export default fetch_api;

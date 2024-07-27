@@ -13,11 +13,12 @@ const Header = () => {
   const user=useSelector(state=>state.user.user);
   const [display, setdisplay] = useState(false)
   const dispatch=useDispatch();
+  const [data, setdata] = useState([])
+  const [loading, setloading] = useState(true)
   const nevigate=useNavigate();
   const handle_logout=async()=>{
-    console.log()
-            const data=await fetch(fetch_api.uploadproduct.url,{
-              method:fetch_api.uploadproduct.method,
+            const data=await fetch(fetch_api.logout.url,{
+              method:fetch_api.logout.method,
               credentials:'include'
             })
             const fetched=await data.json();
@@ -29,12 +30,23 @@ const Header = () => {
               toast.error('User Not found ');
             }
   }
-  useEffect(() => {
-    
-  }, [])
+  const getcartproduct=async()=>{
+      const res=await fetch(fetch_api.getcartproduct.url,{
+        method:fetch_api.getcartproduct.method,
+        credentials:'include',
+        headers:{
+          'Content-Type':'application/json',
+        }
+      })
+      const response=await res.json();
+      if(response.Success){
+        setdata(response.product);
+        setloading(false)
+      }
+  }
+  getcartproduct();
   
  const handle_login=()=>{
-
       nevigate('/login');
  }
   return (
@@ -79,8 +91,8 @@ const Header = () => {
 
       </div>
        <div className='flex max-[600px]:hidden '>
-        <img src={cart} className='w-10  bg-gray-700 m-2 rounded-md hover:invert hover:bg-white' alt="" />
-        <a className='absolute text-blue-400 text-lg font-semibold rounded-lg  top-1'><a className='bg-red-900 rounded-lg px-2'>50</a></a>
+        <img src={cart} onClick={()=>nevigate('/cartproducts')} className='w-10 cursor-pointer  bg-gray-700 m-2 rounded-md hover:invert hover:bg-white' alt="" />
+        <a className='absolute text-blue-400 text-lg font-semibold rounded-lg  top-1'><a className='bg-red-900 rounded-lg px-2'>{loading?"0":data.length}</a></a>
        </div>
        <div className=''>
         <button onClick={user?handle_logout:handle_login} className='bg-gray-500 p-2 max-[700px]:p-1 px-3 text-xl rounded-lg hover:bg-black hover:text-white'>{user?"Logout":"Login"}</button>
