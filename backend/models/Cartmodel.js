@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const cartschema = new mongoose.Schema({
-    productid: String,
+    productid: {
+        ref:"Products",
+        type:String
+    },
     userid: String,
     quantity: String
 }, { timestamps: true });

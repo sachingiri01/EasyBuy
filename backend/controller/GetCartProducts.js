@@ -4,7 +4,7 @@ const getcartproduct=(async(req,res)=>{
    
     try{
         const userid=req._id;
-        const usercart=await cartmodel.find({userid:userid}).select('productid');
+        const usercart=await cartmodel.find({userid:userid}).populate('productid');
         res.json({
             message:"Data feched",
             Success:true,
