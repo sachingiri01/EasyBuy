@@ -6,7 +6,7 @@ const cartschema = new mongoose.Schema({
         type:String
     },
     userid: String,
-    quantity: String
+    quantity: Number
 }, { timestamps: true });
 
 const cartmodel = mongoose.model('Cart', cartschema);

@@ -59,6 +59,14 @@ const fetch_api={
         url:`${backend_domain}/getcartproduct`,
         method:"get",
       },
+      updatequantitycart:{
+        url:`${backend_domain}/updatequantitycart`,
+        method:"post",
+      },
+      deletecartitem:{
+        url:`${backend_domain}/deletecartitem`,
+        method:"post"
+      }
      
 }
 export default fetch_api;

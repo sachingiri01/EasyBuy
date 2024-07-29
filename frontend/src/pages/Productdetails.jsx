@@ -164,7 +164,7 @@ const Productdetails = () => {
                 <FaStarHalf />
               </div>
               <div className="flex gap-3 items-center">
-                <span className="text-red-400 text-2xl">-{((product.price-product.selling)*100/product.price).toPrecision(4)}%</span>
+                <span className="text-red-400 text-2xl">-{((product.price-product.selling)*100/product.price).toFixed(2)}%</span>
                 <span className="text-xl">₹{product.selling}</span>
               </div>
               <p className="mb-2">

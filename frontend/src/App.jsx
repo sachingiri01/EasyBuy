@@ -34,7 +34,7 @@ function App() {
     //  to fetch the user detail
     }>
     <ToastContainer />
-    <div className='custom-blue-bg font-serif w-full'>
+    <div className='custom-blue-bg w-full'>
     <Header/>
    <main className=' pt-20'>
    <Outlet/>
