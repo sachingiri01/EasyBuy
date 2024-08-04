@@ -45,7 +45,12 @@ const Header = () => {
       }
   }
   getcartproduct();
-  
+  const handlesearchbar=(e)=>{
+       const value=e.target.value;
+       if(value){
+        nevigate(`/search?s=${value}`)
+       }
+  }
  const handle_login=()=>{
       nevigate('/login');
  }
@@ -57,8 +62,8 @@ const Header = () => {
       </div>
 
       <div className='flex w-3/12 max-[700px]:w-4/12 shadow-lg shadow-purple-700 rounded-xl'>
-        <input type="text" className='rounded-l-xl w-full border-none text-gray-950 placeholder:font-mono placeholder:text-gray-900' placeholder='Search products here..' id="" />
-        <img src={search} className='w-9  border-none rounded-r-xl bg-white' alt="" />
+        <input onChange={handlesearchbar} type="text" className='rounded-l-xl w-full border-none text-gray-950 placeholder:font-mono placeholder:text-gray-900' placeholder='Search products here..' />
+        <img  src={search} className='w-9  border-none rounded-r-xl bg-white' alt="" />
       </div>
 
       <div className='w-1/6 flex justify-evenly max-[990px]:w-2/6 items-center'>

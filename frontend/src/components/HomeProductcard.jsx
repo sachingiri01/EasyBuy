@@ -27,7 +27,9 @@ const HomeProductcard = ({category}) => {
         setloading(false)
       
     }, [])
-    
+    const click_function=()=>{
+      window.scrollTo({top:0,behavior:'smooth'})
+    }
     const rightScroll = () => {
         if (scrollElement.current) {
           scrollElement.current.scrollLeft += 300;
@@ -71,7 +73,7 @@ const HomeProductcard = ({category}) => {
                     return(
                        <div>
                  
-                <Link to={`/Product-details/${index.category}/${index._id}`} className='text-white w-80 flex  hover:scale-105 transition duration-200  gap-1 group hover:cursor-pointer hover:bg-gray-600  bg-gray-700 rounded-lg'>
+                <Link onClick={click_function} to={`/Product-details/${index.category}/${index._id}`} className='text-white w-80 flex  hover:scale-105 transition duration-200  gap-1 group hover:cursor-pointer hover:bg-gray-600  bg-gray-700 rounded-lg'>
                  <img src={index.productimage[0]} className='w-40 h-40  object-scale-down  rounded-md bg-white' alt="" />
                  <div className='w-40 items-center  gap-1 py-4  flex flex-col'>
                    <p className='text-xl group-hover:underline font-semibold pl-2 text-left w-full line-clamp-1'>{index.productname}</p>

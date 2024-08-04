@@ -27,7 +27,9 @@ const Verticalproduct = ({category}) => {
         fetch_products(category)
         setloading(false)
     }, [])
-    
+   
+     
+  
     const rightScroll = () => {
         if (scrollElement.current) {
           scrollElement.current.scrollLeft += 300;

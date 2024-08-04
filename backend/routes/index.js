@@ -17,6 +17,7 @@ const AddToCart = require('../controller/Addtocart');
 const getcartproduct = require('../controller/GetCartProducts');
 const updatequantitycart = require('../controller/UpdateQuantityCart');
 const deletecartitem = require('../controller/DeleteCartitem');
+const searchproducts = require('../controller/searchproduct');
 router.post('/signup',signup);
 router.post('/login',login);
 router.get('/userdetail',authenticate,user_detail)
@@ -34,4 +35,5 @@ router.post('/update-product',authenticate,admin_authenticate,update_product)
 router.get('/getproductbycategory',GetProductByCategory)
 router.post('/getallcatproduct',getallcatproduct)
 router.post('/product-detail',GetProduct)
+router.post('/searchproducts',searchproducts);
 module.exports=router

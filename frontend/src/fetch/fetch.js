@@ -35,6 +35,11 @@ const fetch_api={
         method:"get"
 
       },
+      searchproducts:{
+        url:`${backend_domain}/searchproducts`,
+        method:"post"
+        
+      },
       updateproduct:{
         url:`${backend_domain}/update-product`,
         method:"post"

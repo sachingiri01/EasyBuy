@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 const Simpleproductcard = ({item}) => {
   const nevigate=useNavigate();
-    const show=()=>{
-      console.log(item);
-    }
+  const click_function=()=>{
+    nevigate(`/Product-details/${item.category}/${item._id}`)
+    window.scrollTo({top:0,behavior:'smooth'})
+  }
     return (
       
-        <div  onClick={()=> nevigate(`/Product-details/${item.category}/${item._id}`)}   className='  cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
+        <div  onClick={click_function}   className='  cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
           {/* {
                edit_show &&(
                 <Editproduct details={item} onClose={()=>setedit_show(false)}/>
@@ -25,7 +26,7 @@ const Simpleproductcard = ({item}) => {
         />
        </div>
 
-        <div className="relative   text-center text-white rounded-lg rounded-t-none bg-slate-600">
+        <div className="relative   text-center text-white rounded-lg rounded-t-none bg-slate-600 pb-2">
           <h3 className="text-lg group-hover:underline line-clamp-1">
           {item.brandename} -{item.productname}
           </h3>

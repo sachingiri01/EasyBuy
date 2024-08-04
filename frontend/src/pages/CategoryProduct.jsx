@@ -26,6 +26,7 @@ const CategoryProduct = () => {
         fetche_data();
     }, [])
     
+    
   return (
          <div className='min-h-screen'>
         <div className='flex flex-wrap gap-5 p-4 '>

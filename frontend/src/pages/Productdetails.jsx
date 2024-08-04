@@ -56,6 +56,10 @@ const Productdetails = () => {
    
     
   }
+  useEffect(() => {
+    window.scrollTo({top:0,behavior:'smooth'})
+  }, [])
+  
   const handlezoom=(e)=>{
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.clientX - left) / width;
