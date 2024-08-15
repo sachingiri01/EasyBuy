@@ -35,6 +35,10 @@ const fetch_api={
         method:"get"
 
       },
+      getfilterproduct:{
+        url:`${backend_domain}/getfilterproduct`,
+        method:"post"
+      },
       searchproducts:{
         url:`${backend_domain}/searchproducts`,
         method:"post"

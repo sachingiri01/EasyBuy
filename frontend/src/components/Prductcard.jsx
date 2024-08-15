@@ -20,11 +20,11 @@ const Prductcard = ({item,get_data}) => {
                )
           }
          
-       <div className='flex overflow-hidden rounded-xl rounded-b-none bg-gray-400 items-center justify-center'>
+       <div className='flex overflow-hidden rounded-xl rounded-b-none bg-white items-center justify-center'>
        <img
           src={item.productimage[0]}
           alt=""
-          className="h-[220px] object-fill group w-full  transition rounded-lg duration-500 group-hover:scale-105 "
+          className="h-[220px] object-scale-down group w-full  transition rounded-lg duration-500 group-hover:scale-105 "
         />
        </div>
 

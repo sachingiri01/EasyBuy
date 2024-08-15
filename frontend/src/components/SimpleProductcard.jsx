@@ -11,7 +11,7 @@ const Simpleproductcard = ({item}) => {
   }
     return (
       
-        <div  onClick={click_function}   className='  cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
+        <div  onClick={click_function}   className='cursor-pointer relative rounded-lg group block w-64 max-[550px]:w-full max-[650px]:w-48  hover:shadow-purple-400 shadow-md'>
           {/* {
                edit_show &&(
                 <Editproduct details={item} onClose={()=>setedit_show(false)}/>

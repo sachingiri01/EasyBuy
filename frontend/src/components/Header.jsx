@@ -55,7 +55,7 @@ const Header = () => {
       nevigate('/login');
  }
   return (
-    <div className='text-white fixed w-full z-10  px-4 h-20 flex justify-between rounded-b-lg border-b-2 items-center bg-gray-800 hover:bg-gray-900'>
+    <div className='text-white fixed w-full z-20  px-4 h-20 flex justify-between rounded-b-lg border-b-2 items-center bg-gray-800 hover:bg-gray-900'>
   
       <div className='w-1/6'>
        <Link to="/">  <img src={logo} className='w-24 hover:cursor-pointer rounded-lg shadow-lg shadow-blue-800/40' alt="" /></Link>
@@ -66,7 +66,7 @@ const Header = () => {
         <img  src={search} className='w-9  border-none rounded-r-xl bg-white' alt="" />
       </div>
 
-      <div className='w-1/6 flex justify-evenly max-[990px]:w-2/6 items-center'>
+      <div className='w-1/6 flex justify-between max-[990px]:w-2/6 items-center'>
       <div className='relative max-[700px]:mr-3 group'>
       {
         user&&(
@@ -95,10 +95,14 @@ const Header = () => {
        }
 
       </div>
-       <div className='flex max-[600px]:hidden '>
+       {
+        user&&(
+          <div className='flex max-[600px]:hidden '>
         <img src={cart} onClick={()=>nevigate('/cartproducts')} className='w-10 cursor-pointer  bg-gray-700 m-2 rounded-md hover:invert hover:bg-white' alt="" />
         <a className='absolute text-blue-400 text-lg font-semibold rounded-lg  top-1'><a className='bg-red-900 rounded-lg px-2'>{loading?"0":data.length}</a></a>
        </div>
+        )
+       }
        <div className=''>
         <button onClick={user?handle_logout:handle_login} className='bg-gray-500 p-2 max-[700px]:p-1 px-3 text-xl rounded-lg hover:bg-black hover:text-white'>{user?"Logout":"Login"}</button>
        </div>

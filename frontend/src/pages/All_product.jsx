@@ -37,7 +37,7 @@ const All_product = () => {
     </div>
    
    
-    <div className='relative p-2  h-[calc(100vh-200px)] max-[650px]:justify-center rounded-md overflow-y-scroll flex gap-3 flex-wrap'>
+    <div className='relative p-2  h-[calc(100vh-200px)] justify-evenly scroll-none max-[650px]:justify-center rounded-md overflow-y-scroll flex gap-3 flex-wrap'>
     {
      data?(
       data.map((item)=>{

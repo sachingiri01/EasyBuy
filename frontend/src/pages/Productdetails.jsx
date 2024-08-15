@@ -93,6 +93,10 @@ const Productdetails = () => {
         }
     
   }
+  const handlebuy=()=>{
+    addtocart();
+    nevigate('/cartproducts')
+  }
   const removefromcart=()=>{
     const productid=data._id;
     
@@ -175,7 +179,7 @@ const Productdetails = () => {
                 MRP : <span className="line-through">₹{product.price}</span>
               </p>
               <div className="flex gap-3 mb-2">
-                <button className="border-red-400 bg-white font-semibold px-2 p-1 rounded-md text-red-500 duration-150 transition-transform hover:scale-105">
+                <button onClick={handlebuy} className="border-red-400 bg-white font-semibold px-2 p-1 rounded-md text-red-500 duration-150 transition-transform hover:scale-105">
                   Buy Now
                 </button>
                 <button onClick={addtocart} className=" bg-red-500 text-white font-semibold px-2 p-1 rounded-md hover:scale-105 duration-150 transition-transform">
