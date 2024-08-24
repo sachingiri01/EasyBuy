@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/83f5bab2-bc3b-4854-9b51-859fffcbfcbf
+
 # MERN Stack E-commerce Website
 
 This project is a full-stack e-commerce website built using the MERN stack (MongoDB, Express, React, Node.js). The application includes various features for both customers and administrators, ensuring a seamless online shopping experience.
