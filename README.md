@@ -1,4 +1,3 @@
-https://github.com/user-attachments/assets/83f5bab2-bc3b-4854-9b51-859fffcbfcbf
 
 # MERN Stack E-commerce Website
 
