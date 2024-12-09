@@ -1,6 +1,6 @@
 
 // import { url } from "../cloud";
-const url=process.env.url
+const url=process.env.URL
 const uploadimage=async(image)=>{
     const formdata=new FormData();
     formdata.append('file',image);
