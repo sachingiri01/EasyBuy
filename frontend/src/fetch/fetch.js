@@ -5,6 +5,7 @@ const fetch_api={
         url:`${backend_domain}/signup`,
         method:"post"
       },
+      
       login:{
         url:`${backend_domain}/login`,
         method:"post"
