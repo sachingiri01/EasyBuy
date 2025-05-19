@@ -8,7 +8,7 @@ dotenv.config();
 Connectdb();
 const app =express();
 app.use(cors({
-    origin:"*",
+    origin:process.env.FRONTEND,
     credentials: true
 }));
 app.use(cookieParser())
