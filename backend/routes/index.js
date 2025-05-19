@@ -19,8 +19,10 @@ const updatequantitycart = require('../controller/UpdateQuantityCart');
 const deletecartitem = require('../controller/DeleteCartitem');
 const searchproducts = require('../controller/searchproduct');
 const getfilterproduct = require('../controller/getfilterproduct');
+const HelloRoute = require('../controller/Hello');
 router.post('/signup',signup);
 router.post('/login',login);
+router.post('/',HelloRoute);
 router.get('/userdetail',authenticate,user_detail)
 router.post('/addtocart',authenticate, AddToCart);
 router.get('/getcartproduct',authenticate,getcartproduct)
