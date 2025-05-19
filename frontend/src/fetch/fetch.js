@@ -1,5 +1,4 @@
-
-const backend_domain='https://easybuy-t2ot.onrender.com/api'
+const backend_domain='http://localhost:3000/api'
 const fetch_api={
       signup:{
         url:`${backend_domain}/signup`,
