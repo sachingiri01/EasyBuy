@@ -54,6 +54,8 @@ const Header = () => {
  const handle_login=()=>{
       nevigate('/login');
  }
+
+ 
   return (
     <div className='text-white fixed w-full z-20  px-4 h-20 flex justify-between rounded-b-lg border-b-2 items-center bg-gray-800 hover:bg-gray-900'>
   

@@ -39,6 +39,7 @@ const Home = () => {
     setnavproduct(res.products)
     setloading(false)
   }
+  
   useEffect(() => {
       fetch_product()
      

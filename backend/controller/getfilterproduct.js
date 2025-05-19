@@ -14,7 +14,7 @@ const getfilterproduct=(async(req,res)=>{
     
     }catch(err){
         res.json({
-          message:"h",
+          message:"Some Error Occured",
           Success:false
         })
      }

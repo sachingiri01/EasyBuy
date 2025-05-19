@@ -43,8 +43,9 @@ const login = () => {
        const check_data=await check.json();
        if(check_data.Success){
            toast.success(check_data.message);
-           nevigate('/');
-         await  user_data.fetch_user_detail;
+          //  nevigate('/');
+          window.location.href = "/";
+          await  user_data.fetch_user_detail;
        }else{
      toast.error(check_data.message);
      nevigate('/login');

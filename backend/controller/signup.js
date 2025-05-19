@@ -5,6 +5,8 @@ const saltRounds = 10;
 const signup=(async(req,res)=>{
     try{
          const {name,email,password,user_profile}=req.body;
+         console.log(name);
+         
          const already=await usermodel.findOne({email});
          if(already){
             res.json({
@@ -27,7 +29,7 @@ const signup=(async(req,res)=>{
     catch(err){
 
         res.json({
-            message:"cannot sign up some error occured",
+            message:"Click Again : Some Error",
             Success:false
         })
     }
