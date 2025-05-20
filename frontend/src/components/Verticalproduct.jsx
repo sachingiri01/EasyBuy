@@ -71,7 +71,7 @@ const Verticalproduct = ({category}) => {
                  </div>
                  </div>
                 </div>
-             ):( data.map((index)=>{
+             ):(Array.isArray(data)&& data.map((index)=>{
                     return(
                         <div>
                  
