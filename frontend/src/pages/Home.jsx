@@ -69,7 +69,7 @@ const Home = () => {
             )
           })
          ):(
-          navproduct.map((item,index)=>{
+        Array.isArray(navproduct)&&  navproduct.map((item,index)=>{
           return(
            <Link to={"category-product/"+item.category} className=''>
              <img src={item.productimage[0]} key={index} className='bg-gray-500 object-scale-down p-1 peer w-20 md:w-20 hover:scale-110 transition duration-200  hover:cursor-pointer shadow-lg  hover:shadow-indigo-400 md:h-16 h-14 rounded-full'  />
