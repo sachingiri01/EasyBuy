@@ -1,4 +1,4 @@
-const backend_domain='http://localhost:3000/api'
+const backend_domain='https://easy-buy-back-ap.vercel.app/'
 const fetch_api={
       signup:{
         url:`${backend_domain}/signup`,
