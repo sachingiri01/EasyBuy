@@ -20,7 +20,7 @@ const login =(async(req,res)=>{
                 isadmin:user.isadmin
             }
         const tokenn= jwt.sign(  data , process.env.SECRET, { expiresIn: '8h' });
-          return res.cookie("token",tokenn,{httpOnly:true,secure:true}).status(200).json({ message: "Login Successful : Reaload Page", Success: true,data:tokenn });
+            return res.cookie("token",tokenn,{httpOnly:true,secure:true,sameSite: "None"}).status(200).json({ message: "Login Successful", Success: true,data:tokenn });
         } else {
           return res.status(400).json({ message: "Invalid Password", Success: false });
         }
